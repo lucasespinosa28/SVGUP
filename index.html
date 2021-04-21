@@ -1,0 +1,227 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link href="css/tailwind.css" rel="stylesheet">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body class="bg-yellow-50">
+  <nav class="flex flex-row-reverse bg-gray-600 border-b-2 border-green-500 h-14">
+    <button id="loginBtn" class="hidden">Login</button>
+    <button id="logoutBtn" class="hidden">Logout</button>
+    <h1 class="font-bold text-green-500"><span id="idOutput" class="hidden"></span></h1>
+  </nav>
+  <div class="flex justify-center bg-green-400 border-b-2 border-green-300">
+    <h1 class="text-3xl font-bold py-4">optimize and edit the color pallet of your Svg and save in Skynet using SVGUP.</h1>
+  </div>
+  <div class="flex justify-center h-24 bg-green-200 border-b-2 border-green-100">
+    <div class="">
+      <button id="uploadBtn" class="hidden">New svg</button>
+      <button id="listBtn" class="hidden">Show upload list</button>
+    </div>
+    <div class="">
+      <span id="alertLogin" class="font-bold text-3xl text-yellow-500">Login to start!</span>
+    </div>
+  </div>
+  <div id="listContent" class="hidden">
+    <table class="table-auto mx-48">
+      <thead>
+        <tr class="text-2xl font-bold text-yellow-500">
+          <td>Name</td>
+          <td>Link</td>
+          <td>Date</td>
+        </tr>
+      </thead>
+      <tbody id="tableBody" class="border  border-yellow-500 text-1xl font-bold text-yellow-700">
+      </tbody>
+    </table>
+  </div>
+  <div  id="uploadContent" class="hidden">
+    <div class="flex  justify-center bg-yellow-50">
+      <input id="inputField" type="file" class="bg-yellow-500 text-gray-50 m-2 px-4 py-2 shadow-xl rounded active:shadow" accept=".svg" name="file" value="" />
+      <button id="UploadBtn" class="bg-green-500 text-white m-2 px-4 py-2 shadow-xl rounded active:shadow" name="Save">Upload to skynet</button>
+
+    </div>
+    <div class="flex flex-row ">
+      <div class="w-1/5">
+        <h2 class="text-2xl font-bold mx-8">Options</h2>
+        <ul class="flex flex-col mx-8">
+        <h4 class="text-1xl font-bold">Remove</h4>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeDoctype" />
+          <label class="text-green-800 font-bold" for="removeDoctype">Doctype</label>
+        </li>
+         <li>
+          <input type="checkbox" checked class="checkboxes  font-bold  font-bold" name="removeXMLProcInst" />
+          <label class="text-green-800 font-bold" for="removeXMLProcInst">"XML processing nstruction</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeXMLProcInst" />
+          <label class="text-green-800 font-bold" for="removeXMLProcInst">"XML processing nstruction</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeComments" />
+          <label class="text-green-800 font-bold" for="removeComments">"Comments</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeMetadata" />
+          <label class="text-green-800 font-bold" for="removeMetadata">"Metadata</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeTitle" />
+          <label class="text-green-800 font-bold" for="removeTitle">&lt;Title&gt;</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeDesc" />
+          <label class="text-green-800 font-bold" for="removeDesc">&lt;Desc&gt;</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeUselessDefs" />
+          <label class="text-green-800 font-bold" for="removeUselessDefs">Useless Defs</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeEditorsNSData" />
+          <label class="text-green-800 font-bold" for="removeEditorsNSData">Editors NS Data</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeEmptyAttrs" />
+          <label class="text-green-800 font-bold" for="removeEmptyAttrs">Empty Attrs</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeHiddenElems" />
+          <label class="text-green-800 font-bold" for="removeHiddenElems">Hidden Elems</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeEmptyText" />
+          <label class="text-green-800 font-bold" for="removeEmptyText">Empty Text</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeEmptyContainers" />
+          <label class="text-green-800 font-bold" for="removeEmptyContainers">Empty Containers</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeViewBox" />
+          <label class="text-green-800 font-bold" for="removeViewBox">View Box</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeUnknownsAndDefaults" />
+          <label class="text-green-800 font-bold" for="removeUnknownsAndDefaults">Unknowns And Defaults</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeNonInheritableGroupAttrs" />
+          <label class="text-green-800 font-bold" for="removeNonInheritableGroupAttrs">Non Inheritable Group Attrs</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeUselessStrokeAndFill" />
+          <label class="text-green-800 font-bold" for="removeUselessStrokeAndFill">Useless Stroke And Fill</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeUnusedNS" />
+          <label class="text-green-800 font-bold" for="removeUnusedNS">UnusedNS</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeDimensions" />
+          <label class="text-green-800 font-bold" for="removeDimensions">Dimensions</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="removeRasterImages" />
+          <label class="text-green-800 font-bold" for="removeRasterImages">Raster Images</label>
+        </li>
+      </ul>
+        <ul class="flex flex-col mx-8">
+        <h4 class="text-1xl font-bold">Cleanup</h4>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="cleanupEnableBackground" />
+          <label class="text-green-800 font-bold" for="cleanupEnableBackground">EnableBackground</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="cleanupIDs" />
+          <label class="text-green-800 font-bold" for="cleanupIDs">IDs</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="cleanupNumericValues" />
+          <label class="text-green-800 font-bold" for="cleanupNumericValues">NumericValues</label>
+        </li>
+      </ul>
+        <ul class="flex flex-col mx-8">
+        <h4 class="text-1xl font-bold">Convert</h4>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="convertStyleToAttrs" />
+          <label class="text-green-800 font-bold" for="convertStyleToAttrs">StyleToAttrs</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="convertColors" />
+          <label class="text-green-800 font-bold" for="convertColors">Colors</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="convertPathData" />
+          <label class="text-green-800 font-bold" for="convertPathData">PathData</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="convertTransform" />
+          <label class="text-green-800 font-bold" for="convertTransform">Transform</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="convertShapeToPath" />
+          <label class="text-green-800 font-bold" for="convertShapeToPath">ShapeToPath</label>
+        </li>
+      </ul>
+        <ul class="flex flex-col mx-8">
+        <h4 class="text-1xl font-bold">Others</h4>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="mergePaths" />
+          <label class="text-green-800 font-bold" for="mergePaths">Merge Paths</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="moveElemsAttrsToGroup" />
+          <label class="text-green-800 font-bold" for="moveElemsAttrsToGroup">Move ElemsAttrs To Group</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="moveGroupAttrsToElems" />
+          <label class="text-green-800 font-bold" for="moveGroupAttrsToElems">Move GroupAttrs To Elems</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="collapseGroups" />
+          <label class="text-green-800 font-bold" for="collapseGroups">Collapse Groups</label>
+        </li>
+        <li>
+          <input type="checkbox" checked class="checkboxes  font-bold" name="sortAttrs" />
+          <label class="text-green-800 font-bold" for="sortAttrs">sortAttrs</label>
+        </li>
+      </ul>
+      </div>
+      <div class="w-3/5 flex flex-col">
+        <div class="flex justify-center">
+          <h3 id="optimizedOuput" class="m-4 text-2xl font-bold text-blue-400">Optimized:</h3>
+        </div>
+        <div id="outputSvg" class="flex justify-center bg-white border-2 border-grey-500 p-4 h-1/2 w-full"></div>
+      </div>
+      <div class="w-1/5">
+        
+       <button id="pallet" class="bg-green-500 text-white m-2 px-4 py-2 shadow-xl rounded active:shadow" name="Save">Change colors pallet</button>
+        <div id="colorOuput"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/main.js"></script>
+  <script src="js/optimizer.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

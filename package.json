@@ -1,0 +1,25 @@
+{
+  "name": " ",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": "",
+  "license": "",
+  "author": "",
+  "scripts": {
+    "build": "parcel build index.html",
+    "dev": "parcel index.html --open",
+    "start": "npm run build && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.0.0-beta.2",
+    "@parcel/transformer-webmanifest": "^2.0.0-beta.2",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "@skynetlabs/content-record-library": "^0.4.0",
+    "skynet-js": "^4.0.1-beta",
+    "svgo": "^1.3.2",
+    "svgo-browser": "^1.3.8"
+  }
+}
